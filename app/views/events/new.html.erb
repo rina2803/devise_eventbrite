@@ -1,0 +1,46 @@
+<h2>Toi aussi, écris ton evenement !</h2>
+
+
+<%= form_for @event, url: {action: 'create'} do |f| %>
+
+ <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputEmail4">Title:</label>
+      <input type='text' class="form-control" name='title' id='title' placeholder="title">
+    </div>
+
+     <div class="form-group col-md-6">
+      <label for="inputPassword4">Location</label>
+      <input type="location" class="form-control" name='location' id='location' placeholder="location">
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="inputAddress">Description</label>
+    <input type="text" class="form-control" name='description' id='description' placeholder="description">
+</div>
+
+ <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputCity">Start date</label>
+      <input type="datetime_select" name='start_date' class="form-control" id="start_date">
+      
+    </div>
+</div>
+
+ <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputCity">Duration</label>
+      <input type="age" name='duration' class="form-control" id="duration" placeholder="duration">
+    </div>
+</div>
+
+<div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputCity">Price</label>
+      <input type="age" name='price' class="form-control" id="price" placeholder="price">
+    </div>
+</div>
+
+<button type="submit" class="btn btn-primary">ENREGISTRER</button>
+<% end %>

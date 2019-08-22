@@ -1,0 +1,30 @@
+<div class="jumbotron jumbotron-center shadow" style="background-color:#F8F9FA;">
+  <% if user_signed_in? %>
+    <div class="container">
+      <table class="table">
+        <tr>
+          <h1>LISTE DES PARTICIPANTS<h1>
+
+              <th>NOM</th>
+              <th>INVITE</th>
+            </tr>
+
+            <% @users.each do |user| %>
+              <tr>
+                <td><%= user.first_name %></td>
+                <%if @event.attendances.include?(user)%>
+                  <td>
+                    <span class="badge-danger">
+                      <%=user.first_name%>
+                      participe</span></td>
+                <%else%>
+                  <td><%= button_to "INVITER", event_user_invited_path(@event.id, user.id), :class => 'btn btn-success' %></td>
+                <%end%>
+              </tr>
+            <% end %>
+          </table>
+        </div>
+      <%else%>
+        <%flash[:error] = "Vous devez d'abord être connecté"%><%end%>
+
+      </div>
